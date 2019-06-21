@@ -6,7 +6,7 @@ export default class App extends React.Component {
     render() {
         return (
           <div>
-              <BrowserRouter>
+              <BrowserRouter basename="/kwic">
                   <Route path="/" exact component={HomePage}/>
               </BrowserRouter>
           </div>
