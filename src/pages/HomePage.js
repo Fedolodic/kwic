@@ -33,21 +33,34 @@ export default class HomePage extends React.Component {
     // When go button is clicked
     onSubmit = () => {
         console.log('My JSON Object:', this.state);
-        axios.post('http://localhost:8091/KWIC')
+
+        let userText = JSON.stringify({
+            string_To_Shift: this.state.string_To_Shift
+        });
+
+        console.log('userText variable =', userText);
+        axios.post('http://localhost:8091/KWIC', userText, {
+            headers: {
+                'Content-Type': 'application/json',
+            }
+        })
             .then((res) => {
                 console.log(res);
-                const circularShifted = res.data.title;
-                const alphabeticallyShifted = res.data.title;
-                console.log('API Response:', circularShifted, alphabeticallyShifted);
+                const cyclicallyShifted = res.data.cyclicallyShifted;
+                const alphabeticallyShifted = res.data.alphabeticallyShifted;
+                console.log('API Response:', cyclicallyShifted, alphabeticallyShifted);
 
-                this.setState({cyclicallyShifted: circularShifted, alphabeticallyShifted: alphabeticallyShifted});
+                this.setState({cyclicallyShifted: cyclicallyShifted, alphabeticallyShifted: alphabeticallyShifted});
             })
+            .catch(error => {
+                console.log(JSON.stringify(error))
+            });
     };
 
     // Show these tags
     render() {
 
-        const {kwicText} = this.state;
+        const {string_To_Shift} = this.state;
 
         return (
             <Container>
@@ -57,7 +70,8 @@ export default class HomePage extends React.Component {
                             <h1 align='center'>Input</h1>
                             <p>Insert input and press the green button.</p>
                             <Form size='big'>
-                                <Input type='text' name="kwicText" onChange={this.onChange} value={kwicText}
+                                <Input type='text' name="string_To_Shift" onChange={this.onChange}
+                                       value={string_To_Shift}
                                        placeholder='Input KWIC text here' fluid/>
                             </Form>
                         </Grid.Column>

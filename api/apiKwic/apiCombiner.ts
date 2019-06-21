@@ -27,4 +27,5 @@ export const apiCombiner:KwicRequestHandler = (req, res, next) => {
             new Error("There was no String to combine. Please add input."
         ));
     }
+    
 }
