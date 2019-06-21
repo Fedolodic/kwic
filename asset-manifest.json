@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.js": "/kwic/static/js/main.9aedf014.chunk.js",
+    "main.js.map": "/kwic/static/js/main.9aedf014.chunk.js.map",
+    "runtime~main.js": "/kwic/static/js/runtime~main.ecbf97cf.js",
+    "runtime~main.js.map": "/kwic/static/js/runtime~main.ecbf97cf.js.map",
+    "static/js/2.5911c09a.chunk.js": "/kwic/static/js/2.5911c09a.chunk.js",
+    "static/js/2.5911c09a.chunk.js.map": "/kwic/static/js/2.5911c09a.chunk.js.map",
+    "index.html": "/kwic/index.html",
+    "precache-manifest.0b03cc2ea4b011dc7dfb309d7cb9ebc5.js": "/kwic/precache-manifest.0b03cc2ea4b011dc7dfb309d7cb9ebc5.js",
+    "service-worker.js": "/kwic/service-worker.js"
+  }
+}
