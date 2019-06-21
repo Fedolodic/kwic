@@ -27,7 +27,7 @@
     "build": "node_modules/.bin/react-scripts build",
     "test": "node_modules/.bin/react-scripts test",
     "predeploy": "npm run build",
-    "deploy": "node_modules/.bin/gh-pages -d build node_modules/.bin/gh-pages -d build -b master/docs —repo https://github.com/Fedolodic/kwic",
+    "deploy": "node_modules/.bin/gh-pages -d build -b master —repo https://github.com/Fedolodic/kwic",
     "eject": "node_modules/.bin/react-scripts eject"
   },
   "eslintConfig": {
