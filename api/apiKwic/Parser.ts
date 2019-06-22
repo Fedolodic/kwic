@@ -33,7 +33,7 @@ export class Parser {
     parse(userInput:string) {
         // make sure there is userinput
         let parsedLines:string[][] = [];
-        
+        console.log("ParsedLines.length:  " + parsedLines.length);
         if(typeof(userInput) != "undefined" && userInput.length) {
             let current:number = 0, firstChar:number = 0;
         
@@ -43,15 +43,14 @@ export class Parser {
                 // line parse
                 if(userInput[current] === "$") {
                     parsedLines.push(
-                        this._getSubString(userInput, firstChar, current - 1));
+                        this._getSubString(userInput, firstChar, current));
                     firstChar = current + 1;
                 } 
             }
-                
-            if(firstChar != current)
-                parsedLines.push(
-                this._getSubString(userInput, firstChar, current));
-
+        
+            parsedLines.push(
+                this._getSubString(userInput, firstChar, current + 1));
+            console.log(parsedLines);
             // if there was content return
             if(parsedLines.length) {
                     return parsedLines;
@@ -65,7 +64,9 @@ export class Parser {
 
     _getSubString(str:string, firstChar:number, currentChar:number) {
         let newLine:string = 
-        str.substring(firstChar, currentChar + 1);
+        str.substring(firstChar, currentChar);
+        newLine = newLine.trim();
+        console.log(newLine);
         // word parse
         return newLine.split(" ");
     }

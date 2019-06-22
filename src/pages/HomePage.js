@@ -16,8 +16,8 @@ export default class HomePage extends React.Component {
     // Component variables
     state = {
         string_To_Shift: '',
-        cyclicallyShifted: '',
-        alphabeticallyShifted: ''
+        cyclicallyShifted: [],
+        alphabeticallyShifted: []
     };
 
     // When typing begins
@@ -39,7 +39,7 @@ export default class HomePage extends React.Component {
         });
 
         console.log('userText variable =', userText);
-        axios.post('https://desolate-plateau-54439.herokuapp.com/KWIC', userText, {
+        axios.post('http://localhost:8091/KWIC', userText, {
             headers: {
                 'Content-Type': 'application/json',
             }
@@ -47,15 +47,45 @@ export default class HomePage extends React.Component {
             .then((res) => {
                 console.log(res);
                 const cyclicallyShifted = res.data.cyclicallyShifted;
+
+                for(let str in cyclicallyShifted) {
+                    console.log("str:  " + str);
+                }
+
                 const alphabeticallyShifted = res.data.alphabeticallyShifted;
                 console.log('API Response:', cyclicallyShifted, alphabeticallyShifted);
 
-                this.setState({cyclicallyShifted: cyclicallyShifted, alphabeticallyShifted: alphabeticallyShifted});
+                this.setState({cyclicallyShifted: JSON.stringify(cyclicallyShifted), 
+                    alphabeticallyShifted: JSON.stringify(alphabeticallyShifted)});
             })
             .catch(error => {
                 console.log(JSON.stringify(error))
             });
     };
+
+    checkCyclicShift = () => {
+        if(this.state.cyclicallyShifted.length) {
+            return <ul>
+                    {JSON.parse(this.state.cyclicallyShifted).map((value, index) => {
+                        return value.map((val, ind) => {
+                            return <li key={ind}>{val}</li>
+                        })
+                    })}
+                </ul>
+        } 
+    }
+
+    checkAlphabeticShift= () => {
+        if(this.state.alphabeticallyShifted.length) {
+            return <ul>
+                    {JSON.parse(this.state.alphabeticallyShifted).map((value, index) => {
+                        return value.map((val, ind) => {
+                            return <li key={ind}>{val}</li>
+                        })
+                    })}
+                </ul>
+        } 
+    }
 
     // Show these tags
     render() {
@@ -90,13 +120,13 @@ export default class HomePage extends React.Component {
                         <Grid.Column>
                             <h1 align='center'>Cyclical Shift</h1>
                             <Segment inverted>
-                                <p>{this.state.cyclicallyShifted}</p>
+                                {this.checkCyclicShift()}
                             </Segment>
                         </Grid.Column>
                         <Grid.Column>
                             <h1 align='center'>Alphabetical Shift</h1>
                             <Segment>
-                                <p>{this.state.alphabeticallyShifted}</p>
+                                {this.checkAlphabeticShift()}
                             </Segment>
                         </Grid.Column>
                     </Grid.Row>
