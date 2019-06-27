@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.js": "/kwic/static/js/main.fdf279cc.chunk.js",
-    "main.js.map": "/kwic/static/js/main.fdf279cc.chunk.js.map",
+    "main.js": "/kwic/static/js/main.a9bacdca.chunk.js",
+    "main.js.map": "/kwic/static/js/main.a9bacdca.chunk.js.map",
     "runtime~main.js": "/kwic/static/js/runtime~main.ecbf97cf.js",
     "runtime~main.js.map": "/kwic/static/js/runtime~main.ecbf97cf.js.map",
-    "static/js/2.e1c688e4.chunk.js": "/kwic/static/js/2.e1c688e4.chunk.js",
-    "static/js/2.e1c688e4.chunk.js.map": "/kwic/static/js/2.e1c688e4.chunk.js.map",
+    "static/js/2.5911c09a.chunk.js": "/kwic/static/js/2.5911c09a.chunk.js",
+    "static/js/2.5911c09a.chunk.js.map": "/kwic/static/js/2.5911c09a.chunk.js.map",
     "index.html": "/kwic/index.html",
-    "precache-manifest.29334db572452f5e3896e4c242a2c541.js": "/kwic/precache-manifest.29334db572452f5e3896e4c242a2c541.js",
+    "precache-manifest.b198796486feb5e205adc074200ce524.js": "/kwic/precache-manifest.b198796486feb5e205adc074200ce524.js",
     "service-worker.js": "/kwic/service-worker.js"
   }
 }
