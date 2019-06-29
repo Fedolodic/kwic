@@ -1,24 +1,5 @@
 import { RequestHandler } from "express";
 
-export const combiner:RequestHandler = (req, res, next) => {
-
-    let stringToCombine:string[][][] = req.body.string_To_Shift;
-    const stringCombiner:Combiner = new Combiner();  
-    const combinedString:string[][] = 
-        stringCombiner.combineResults(stringToCombine);
-    
-    if(combinedString != []) {
-        req.body.string_To_Shift = combinedString;
-        next(); 
-    }
-    else {
-        next(
-            new Error("There was no String to combine. Please add input."
-        ));
-    }
-    
-}
-
 export class Combiner {
     /****************
      *    methods   *

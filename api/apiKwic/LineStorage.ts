@@ -1,19 +1,5 @@
 import { RequestHandler } from "express";
 
-export const lineStorage:RequestHandler = (req, res, next) => {
-    const lineStrg:LineStorage = new LineStorage();
-    const linesToStore = req.body.string_To_Shift;
-
-    if(Array.isArray(linesToStore) && linesToStore.length) {
-        lineStrg.store_Lines(linesToStore);
-        next();
-    }
-    else
-        next(
-            new Error("There was no String to Store. Please add input."
-        ));
-}
-
 export class LineStorage {
     _lines:string[][] = []
    

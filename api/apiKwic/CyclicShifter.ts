@@ -1,21 +1,6 @@
 import { Queue } from "queue-typescript";
 import { RequestHandler } from "express";
 
-export const cyclicShifter:RequestHandler = (req, res, next) => {
-    let stringToShift = req.body.string_To_Shift;
-    const stringShifter:CyclicShifter = new CyclicShifter();
-    const shiftedString = stringShifter.setupAndShift(stringToShift);
-
-    if(shiftedString) {
-        req.body.string_To_Shift = shiftedString;
-        next();
-    }
-    else
-        next(
-            new Error("There was no String to shift. Please add input."
-        ));
-}
-
 export class CyclicShifter {
     /* this is used to remove from front
        of line and add to back of line

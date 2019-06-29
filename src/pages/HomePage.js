@@ -39,9 +39,9 @@ export default class HomePage extends React.Component {
         });
 
         console.log('userText variable =', userText);
-        axios.post('https://desolate-plateau-54439.herokuapp.com/', userText, {
+        axios.post('https://desolate-plateau-54439.herokuapp.com/KWIC', userText, {
             headers: {
-                'Content-Type': 'application/json',
+                'Content-Type': 'application/json'
             }
         })
             .then((res) => {
